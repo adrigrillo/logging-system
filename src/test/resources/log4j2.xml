@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" packages="com.example.layout">
+	<Properties>
+		<Property name="logs.filename">log-${thread:threadName}.log</Property>
+		<Property name="logs.foldername">logs</Property>
+	</Properties>
+	<Appenders>
+		<Console name="consoleAppender" target="SYSTEM_OUT">
+			<JSON properties="true" eventEol="true" locationInfo="true" />
+		</Console>
+	</Appenders>
+	<Loggers>
+		<AsyncRoot includeLocation="true">
+			<Appender-ref ref="consoleAppender" level="warn" />
+		</AsyncRoot>
+		<AsyncLogger name="com.example.logging.test" includeLocation="true">
+			<Appender-ref ref="consoleAppender" level="debug" />
+		</AsyncLogger>
+	</Loggers>
+</Configuration>
